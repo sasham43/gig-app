@@ -1,11 +1,12 @@
 <div>
   <button *ngIf="show_button" (click)="showLogin()">
-    Login
+    Start
   </button>
   <div *ngIf="show_input">
     <label>Username</label>
-    <input type="text" />
+    <input [(ngModel)]="username" type="text" />
     <label>Password</label>
-    <input type="password" />
+    <input [(ngModel)]="password" type="password" />
+    <button (click)="loginUser()">Login</button>
   </div>
 </div>

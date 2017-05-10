@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { LoginService } from '../login.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +11,13 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   show_button = true;
   show_input = false;
+  active_user: User;
+  @Input() username: string;
+  @Input() password: string;
 
-  constructor() { }
+  constructor(
+    private loginService: LoginService
+  ) { }
 
   ngOnInit() {
   }
@@ -17,6 +25,11 @@ export class LoginComponent implements OnInit {
   showLogin(){
     this.show_button = false;
     this.show_input = true;
+  }
+
+  loginUser(): void {
+    this.active_user = this.loginService.loginUser(this.username, this.password);
+    console.log('active_user:', this.active_user);
   }
 
 }
