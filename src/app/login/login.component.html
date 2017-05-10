@@ -1,0 +1,11 @@
+<div>
+  <button *ngIf="show_button" (click)="showLogin()">
+    Login
+  </button>
+  <div *ngIf="show_input">
+    <label>Username</label>
+    <input type="text" />
+    <label>Password</label>
+    <input type="password" />
+  </div>
+</div>
